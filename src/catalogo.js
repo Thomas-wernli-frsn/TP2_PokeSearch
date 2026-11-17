@@ -26,3 +26,36 @@ function urlWith(base, params) {
   }
   return url;
 }
+
+function TarjetasPokemon(lista) {
+  $grid.innerHTML = "";
+
+  if (lista.length === 0) {
+    $vacio.hidden = false;
+    return;
+  }
+
+  $vacio.hidden = true;
+
+  const tarjetasHTML = lista.map((poke) => {
+    return `
+      <article class="poke-card">
+        <img src="${poke.imagen}" alt="Imagen de ${poke.nombre}" />
+        <h2>${poke.nombre}</h2>
+        <p>Tipo: ${poke.tipo}</p>
+      </article>
+    `;
+  });
+
+  $grid.innetHTML = tarjetasHTML.join("");
+}
+
+async function cargarPokemon() {
+  try {
+  } catch (error) {
+    console.error("Error al cargar: ", error);
+    $error.hidden = false;
+  } finally {
+    $cargando.hidden = true;
+  }
+}
