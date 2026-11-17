@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/poke-icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PokeSearch - Busqueda</title>
+  </head>
+  <body>
+    <header class="barra">
+      <span class="Logo">PokeSearch</span>
+      <nav class="secciones">
+        <ul>
+          <li><a href="./index.html">Inicio</a></li>
+          <li><a href="./catalogo.html">Buscador</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1 class="title">Buscador Pokémon</h1>
+
+      <form class="buscador-form">
+        <label for="search">Buscar por nombre:</label>
+        <input
+          type="search"
+          name="search"
+          id="search"
+          autocomplete="off"
+          placeholder="Ej: Charmander"
+        />
+        <button type="submit" id="btn-search">Buscar</button>
+      </form>
+
+      <p id="estado-cargando" class="estado">Cargando Pokémon...</p>
+      <p id="estado-error" class="estado error" hidden>
+        Ocurrió un error al cargar los datos. Intentá nuevamente.
+      </p>
+      <p id="estado-vacio" class="estado" hidden>
+        No se encontraron Pokémon con ese nombre.
+      </p>
+
+      <section
+        class="results"
+        id="catalogo-grid"
+        aria-label="Resultados de Pokémon"
+      ></section>
+    </main>
+    <footer class="pie">
+      <nav class="datafoot">
+        <strong>PokeSearch 2026</strong>
+        <strong>Gracias PokeApi</strong>
+      </nav>
+    </footer>
+
+    <script type="module" src="/src/catalogo.js"></script>
+  </body>
+</html>
