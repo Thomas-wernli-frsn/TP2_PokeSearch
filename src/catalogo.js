@@ -47,15 +47,36 @@ function TarjetasPokemon(lista) {
     `;
   });
 
-  $grid.innetHTML = tarjetasHTML.join("");
+  $grid.innerHTML = tarjetasHTML.join("");
 }
 
 async function cargarPokemon() {
+  $cargando.hidden = false;
+  $error.hidden = true;
+  $vacio.hidden = true;
   try {
+    const url = urlWith(API_URL, { limit: 151, offset: 0 });
+    const datos = await getJson(url);
+
+    todosLosPokemon = [];
+
+    for (const item of datos.results) {
+      const poke = await getJson(item.url);
+
+      todosLosPokemon.push({
+        nombre: poke.name,
+        imagen: poke.sprites.front_default,
+        tipo: poke.types[0].type.name,
+      });
+    }
+
+    $cargando.hidden = true;
+
+    TarjetasPokemon(todosLosPokemon);
   } catch (error) {
     console.error("Error al cargar: ", error);
     $error.hidden = false;
-  } finally {
-    $cargando.hidden = true;
   }
 }
+
+cargarPokemon();
