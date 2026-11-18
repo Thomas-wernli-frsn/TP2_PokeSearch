@@ -79,4 +79,19 @@ async function cargarPokemon() {
   }
 }
 
+function filtrarPokemon() {
+  const texto = $searchInput.value.trim().toLowerCase();
+
+  const filtrados = todosLosPokemon.filter((poke) =>
+    poke.nombre.toLowerCase().includes(texto),
+  );
+
+  TarjetasPokemon(filtrados);
+}
+
+$searchForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  filtrarPokemon();
+});
+
 cargarPokemon();
