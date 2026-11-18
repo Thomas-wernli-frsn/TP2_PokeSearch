@@ -43,6 +43,7 @@ function TarjetasPokemon(lista) {
         <img src="${poke.imagen}" alt="Imagen de ${poke.nombre}" />
         <h2>${poke.nombre}</h2>
         <p>Tipo: ${poke.tipo}</p>
+        <p>ID: ${poke.id}</p>
       </article>
     `;
   });
@@ -68,6 +69,7 @@ async function cargarPokemon() {
         nombre: poke.name,
         imagen: poke.sprites.front_default,
         tipo: poke.types[0].type.name,
+        id: poke.id,
       });
     }
 
