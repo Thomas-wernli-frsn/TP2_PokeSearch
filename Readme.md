@@ -41,7 +41,6 @@ pero no en `preview`, revisá el `vite.config.js`.
 
 ## -> Estructura
 
-ejemplo-tp2/
 ├── index.html Landing
 ├── catalogo.html Catálogo
 ├── vite.config.js Entradas del build y base relativa
