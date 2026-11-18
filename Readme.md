@@ -41,6 +41,8 @@ pero no en `preview`, revisá el `vite.config.js`.
 
 ## -> Estructura
 
+```
+Pokesearch
 ├── index.html Landing
 ├── catalogo.html Catálogo
 ├── vite.config.js Entradas del build y base relativa
@@ -49,3 +51,4 @@ pero no en `preview`, revisá el `vite.config.js`.
 │ ├── catalogo.js Fetch, búsqueda, estilos y tarjetas
 │ └── styles.css Estilos compartidos
 └── Readme.md
+```
