@@ -55,14 +55,15 @@ async function cargarPokemon() {
   $error.hidden = true;
   $vacio.hidden = true;
   try {
-    const url = urlWith(API_URL, { limit: 151, offset: 0 });
+    const url = urlWith(API_URL, { limit: 151 });
     const datos = await getJson(url);
 
     todosLosPokemon = [];
 
-    for (const item of datos.results) {
-      const poke = await getJson(item.url);
+    const urls = datos.results.map((item) => getJson(item.url));
+    const todos = await Promise.allSettled(urls);
 
+    for (const { value: poke } of todos) {
       todosLosPokemon.push({
         nombre: poke.name,
         imagen: poke.sprites.front_default,
